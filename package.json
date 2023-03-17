@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "test": "jest --coverage",
     "start": "node src/server.js",
     "dev": "nodemon src/server.ts",
     "prisma:reset": "prisma migrate reset",

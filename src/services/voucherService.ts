@@ -11,12 +11,13 @@ export interface VoucherApplyData {
 }
 
 async function createVoucher(code: string, discount: number) {
+
   const voucher = await voucherRepository.getVoucherByCode(code);
   if (voucher) {
     throw conflictError("Voucher already exist.");
   }
 
-  await voucherRepository.createVoucher(code, discount);
+  return await voucherRepository.createVoucher(code, discount);
 }
 
 async function applyVoucher(code: string, amount: number) {
